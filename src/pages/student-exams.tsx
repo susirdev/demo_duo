@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { studentDetailsData } from '@/data/mockData';
 import {
   LineChart,
   Line,
