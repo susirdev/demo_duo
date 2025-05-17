@@ -30,7 +30,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!loggedIn && router.pathname !== '/login') {
       router.push('/login');
     }
-  }, [router.pathname]);
+  }, [router.pathname, router]);
 
   const logout = () => {
     localStorage.removeItem('isLoggedIn');

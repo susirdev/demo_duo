@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { studentDetailsData } from '@/data/mockData';
 import {
   LineChart,
@@ -18,7 +17,6 @@ import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/solid';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function StudentDashboard() {
-  const { userType } = useAuth();
   // 模拟当前登录的学生数据
   const currentStudent = studentDetailsData.students[0];
 

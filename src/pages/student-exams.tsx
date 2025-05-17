@@ -11,13 +11,8 @@ import {
   BarChart,
   Bar,
 } from 'recharts';
-import { useAuth } from '@/contexts/AuthContext';
 
 export default function StudentExams() {
-  const { userType } = useAuth();
-  // 模拟当前登录的学生数据
-  const currentStudent = studentDetailsData.students[0];
-
   // 模拟考试详情数据
   const examDetails = [
     {
