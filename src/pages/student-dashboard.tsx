@@ -14,7 +14,6 @@ import {
   Radar,
 } from 'recharts';
 import { ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/solid';
-import { useAuth } from '@/contexts/AuthContext';
 
 export default function StudentDashboard() {
   // 模拟当前登录的学生数据
