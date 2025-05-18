@@ -56,20 +56,34 @@ export default function StudentExams() {
           考试记录
         </h1>
         <div className="mt-4 sm:mt-0">
-          <select
-            value={selectedExam.examName}
-            onChange={(e) => {
-              const exam = examDetails.find((exam) => exam.examName === e.target.value);
-              if (exam) setSelectedExam(exam);
-            }}
-            className="block w-full rounded-lg border-gray-300 pl-10 pr-10 py-2.5 text-base font-medium bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors duration-200 hover:border-gray-400 text-gray-900 placeholder-gray-400"
-          >
-            {examDetails.map((exam) => (
-              <option key={exam.examName} value={exam.examName} className="py-2 text-gray-900 font-medium">
-                {exam.examName}
-              </option>
-            ))}
-          </select>
+          <div className="relative">
+            <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <DocumentTextIcon className="h-5 w-5 text-blue-500" aria-hidden="true" />
+            </div>
+            <select
+              value={selectedExam.examName}
+              onChange={(e) => {
+                const exam = examDetails.find((exam) => exam.examName === e.target.value);
+                if (exam) setSelectedExam(exam);
+              }}
+              className="block w-full min-w-[200px] rounded-xl border-2 border-blue-100 pl-10 pr-10 py-3 text-base font-semibold bg-white shadow-md focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 hover:border-blue-200 text-blue-700 cursor-pointer"
+            >
+              {examDetails.map((exam) => (
+                <option 
+                  key={exam.examName} 
+                  value={exam.examName} 
+                  className="py-3 text-blue-700 font-semibold bg-white hover:bg-blue-50"
+                >
+                  {exam.examName}
+                </option>
+              ))}
+            </select>
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+              <svg className="h-5 w-5 text-blue-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path fillRule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
 
