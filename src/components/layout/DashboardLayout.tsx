@@ -53,24 +53,24 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 </button>
               )}
               <div className="flex items-center">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2 rounded-lg shadow-md">
-                  <AcademicCapIcon className="h-8 w-8 text-white" />
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-1.5 sm:p-2 rounded-lg shadow-md">
+                  <AcademicCapIcon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <span className="ml-2 sm:ml-3 text-base sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   学科成绩分析系统
                 </span>
               </div>
             </div>
             {isLoggedIn && (
-              <div className="flex items-center space-x-4">
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 shadow-sm">
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <span className="inline-flex items-center px-2 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 shadow-sm">
                   {userType === 'teacher' ? '教师端' : '学生端'}
                 </span>
                 <button
                   onClick={logout}
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-sm hover:shadow"
+                  className="inline-flex items-center px-2 sm:px-4 py-1.5 sm:py-2 border border-transparent text-xs sm:text-sm font-medium rounded-lg text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-sm hover:shadow"
                 >
-                  <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 text-gray-500" />
+                  <ArrowRightOnRectangleIcon className="h-4 w-4 sm:h-5 sm:w-5 mr-1 sm:mr-2 text-gray-500" />
                   退出登录
                 </button>
               </div>
@@ -91,10 +91,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <div className="fixed inset-y-0 left-0 flex w-72 flex-col bg-white shadow-xl">
             <div className="flex h-16 items-center justify-between px-6">
               <div className="flex items-center">
-                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2 rounded-lg shadow-md">
-                  <AcademicCapIcon className="h-8 w-8 text-white" />
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-1.5 sm:p-2 rounded-lg shadow-md">
+                  <AcademicCapIcon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+                <span className="ml-2 sm:ml-3 text-base sm:text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   学科成绩分析系统
                 </span>
               </div>
