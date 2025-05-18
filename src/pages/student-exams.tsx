@@ -11,7 +11,6 @@ import {
   Bar,
 } from 'recharts';
 import { DocumentTextIcon, ChartBarIcon, PresentationChartLineIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
-import clsx from 'clsx';
 
 export default function StudentExams() {
   // 模拟考试详情数据

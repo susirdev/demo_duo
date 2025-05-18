@@ -4,8 +4,6 @@ import { useRouter } from 'next/router';
 import { 
   ChartBarIcon, 
   UserGroupIcon, 
-  UserIcon,
-  HomeIcon,
   Bars3Icon,
   XMarkIcon,
   ArrowRightOnRectangleIcon,
