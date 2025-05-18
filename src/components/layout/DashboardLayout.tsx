@@ -8,32 +8,34 @@ import {
   HomeIcon,
   Bars3Icon,
   XMarkIcon,
-  ArrowRightOnRectangleIcon
+  ArrowRightOnRectangleIcon,
+  ChartPieIcon,
+  DocumentTextIcon,
+  AcademicCapIcon
 } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { useAuth } from '@/contexts/AuthContext';
-
-const teacherNavigation = [
-  { name: '总览', href: '/', icon: HomeIcon },
-  { name: '班级分析', href: '/class-analysis', icon: UserGroupIcon },
-  { name: '学生详情', href: '/student-details', icon: UserIcon },
-];
-
-const studentNavigation = [
-  { name: '个人成绩', href: '/student-dashboard', icon: HomeIcon },
-  { name: '考试记录', href: '/student-exams', icon: UserIcon },
-];
 
 interface DashboardLayoutProps {
   children: ReactNode;
 }
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
-  const router = useRouter();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { userType, logout } = useAuth();
+  const router = useRouter();
+  const { userType, isLoggedIn, logout } = useAuth();
 
-  const navigation = userType === 'teacher' ? teacherNavigation : studentNavigation;
+  // 根据用户类型显示不同的导航项
+  const navigation = userType === 'teacher' 
+    ? [
+        { name: '班级概览', href: '/', icon: ChartBarIcon },
+        { name: '班级分析', href: '/class-analysis', icon: ChartPieIcon },
+        { name: '学生详情', href: '/student-details', icon: UserGroupIcon },
+      ]
+    : [
+        { name: '个人成绩', href: '/student-dashboard', icon: ChartBarIcon },
+        { name: '考试记录', href: '/student-exams', icon: DocumentTextIcon },
+      ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -51,26 +53,28 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 <Bars3Icon className="h-6 w-6" aria-hidden="true" />
               </button>
               <div className="flex items-center">
-                <div className="bg-blue-50 p-2 rounded-lg">
-                  <ChartBarIcon className="h-8 w-8 text-blue-600" />
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2 rounded-lg shadow-md">
+                  <AcademicCapIcon className="h-8 w-8 text-white" />
                 </div>
-                <span className="ml-3 text-xl font-bold text-gray-900">
+                <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                   学科成绩分析系统
                 </span>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-50 text-blue-700">
-                {userType === 'teacher' ? '教师端' : '学生端'}
-              </span>
-              <button
-                onClick={logout}
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
-              >
-                <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2" />
-                退出登录
-              </button>
-            </div>
+            {isLoggedIn && (
+              <div className="flex items-center space-x-4">
+                <span className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 shadow-sm">
+                  {userType === 'teacher' ? '教师端' : '学生端'}
+                </span>
+                <button
+                  onClick={logout}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-gray-700 bg-gray-50 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 shadow-sm hover:shadow"
+                >
+                  <ArrowRightOnRectangleIcon className="h-5 w-5 mr-2 text-gray-500" />
+                  退出登录
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </nav>
@@ -86,10 +90,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         <div className="fixed inset-y-0 left-0 flex w-72 flex-col bg-white shadow-xl">
           <div className="flex h-16 items-center justify-between px-6">
             <div className="flex items-center">
-              <div className="bg-blue-50 p-2 rounded-lg">
-                <ChartBarIcon className="h-8 w-8 text-blue-600" />
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-2 rounded-lg shadow-md">
+                <AcademicCapIcon className="h-8 w-8 text-white" />
               </div>
-              <span className="ml-3 text-xl font-bold text-gray-900">
+              <span className="ml-3 text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
                 学科成绩分析系统
               </span>
             </div>
@@ -112,9 +116,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     href={item.href}
                     className={clsx(
                       isActive
-                        ? 'bg-blue-50 text-blue-600'
+                        ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                      'group flex items-center px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200'
+                      'group flex items-center px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow'
                     )}
                     onClick={() => setSidebarOpen(false)}
                   >
@@ -147,9 +151,9 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                     href={item.href}
                     className={clsx(
                       isActive
-                        ? 'bg-blue-50 text-blue-600'
+                        ? 'bg-gradient-to-r from-blue-50 to-blue-100 text-blue-600'
                         : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
-                      'group flex items-center px-4 py-3 text-base font-medium rounded-lg transition-colors duration-200'
+                      'group flex items-center px-4 py-3 text-base font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow'
                     )}
                   >
                     <item.icon
