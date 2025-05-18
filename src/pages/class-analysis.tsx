@@ -100,7 +100,11 @@ export default function ClassAnalysis() {
                     key={subject}
                     dataKey={`scores.${index}.score`}
                     name={subject}
-                    fill={`hsl(${index * 120}, 70%, 50%)`}
+                    fill={
+                      subject === '语文' ? '#E53E3E' : // 红色系
+                      subject === '数学' ? '#3182CE' : // 蓝色系
+                      '#38A169' // 绿色系（英语）
+                    }
                     radius={[4, 4, 0, 0]}
                   />
                 ))}
