@@ -62,10 +62,10 @@ export default function StudentExams() {
               const exam = examDetails.find((exam) => exam.examName === e.target.value);
               if (exam) setSelectedExam(exam);
             }}
-            className="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-white"
+            className="block w-full rounded-lg border-gray-300 pl-10 pr-10 py-2.5 text-base font-medium bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors duration-200 hover:border-gray-400 text-gray-900 placeholder-gray-400"
           >
             {examDetails.map((exam) => (
-              <option key={exam.examName} value={exam.examName}>
+              <option key={exam.examName} value={exam.examName} className="py-2 text-gray-900 font-medium">
                 {exam.examName}
               </option>
             ))}

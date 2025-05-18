@@ -42,10 +42,10 @@ export default function ClassAnalysis() {
             <select
               value={selectedClass}
               onChange={(e) => setSelectedClass(e.target.value)}
-              className="block w-full rounded-lg border-gray-300 pl-10 pr-10 py-2.5 text-base font-medium bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors duration-200 hover:border-gray-400"
+              className="block w-full rounded-lg border-gray-300 pl-10 pr-10 py-2.5 text-base font-medium bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors duration-200 hover:border-gray-400 text-gray-900 placeholder-gray-400"
             >
               {classAnalysisData.classAverages.map((c) => (
-                <option key={c.className} value={c.className} className="py-2">
+                <option key={c.className} value={c.className} className="py-2 text-gray-900 font-medium">
                   {c.className}
                 </option>
               ))}

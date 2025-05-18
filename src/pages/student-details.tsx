@@ -60,10 +60,10 @@ export default function StudentDetails() {
                 );
                 if (student) setSelectedStudent(student);
               }}
-              className="block w-full rounded-lg border-gray-300 pl-10 pr-10 py-2.5 text-base font-medium bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors duration-200 hover:border-gray-400"
+              className="block w-full rounded-lg border-gray-300 pl-10 pr-10 py-2.5 text-base font-medium bg-white shadow-sm focus:border-blue-500 focus:ring-blue-500 transition-colors duration-200 hover:border-gray-400 text-gray-900 placeholder-gray-400"
             >
               {studentDetailsData.students.map((student: Student) => (
-                <option key={student.id} value={student.id} className="py-2">
+                <option key={student.id} value={student.id} className="py-2 text-gray-900 font-medium">
                   {student.name} - {student.class}
                 </option>
               ))}
